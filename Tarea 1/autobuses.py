@@ -4,7 +4,7 @@
 
 import xml.etree.ElementTree as ET
 
-tree = ET.parse("/Users/jorge/Library/CloudStorage/OneDrive-Personal/VS_Code/Proyecto_Ingenieria/autobuses.xml")
+tree = ET.parse("/Users/jorge/Library/CloudStorage/OneDrive-Personal/VS_Code/Proyecto-de-Ingenieria-I/Tarea 1/autobuses.xml")
 root = tree.getroot()
 
 i = 0

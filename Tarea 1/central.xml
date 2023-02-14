@@ -3,15 +3,40 @@
 soap:encodingStyle="http://www.w3.org/2003/05/soap-encoding">
 
 <soap:Header>
+    Central de Autobuses
 </soap:Header>
 
 <soap:Body>
-    <CentalAutobuses>
+    <CentralAutobuses>
         <CentralField>
-            <autobus>El Guero</autobus>
-            <destino>Leon Guanaguato</destino>
+            <autobus>Mercedes-Benz L12</autobus>
+            <destino>Leon, Guanaguato</destino>
         </CentralField>
-    </CentalAutobuses>
+        <CentralField>
+            <autobus>Dodge k43</autobus>
+            <destino>Aguascalientes, Aguascalientes</destino>
+        </CentralField>
+        <CentralField>
+            <autobus>Hino S02</autobus>
+            <destino>Guadalagara, Jalisco</destino>
+        </CentralField>
+        <CentralField>
+            <autobus>Ford J89</autobus>
+            <destino>Nuevo Leon, Monterrey</destino>
+        </CentralField>
+        <CentralField>
+            <autobus>Scania 66</autobus>
+            <destino>Xalapa, Veracruz</destino>
+        </CentralField>
+        <CentralField>
+            <autobus>Dodge H76</autobus>
+            <destino>Ciudad Victoria, Tamaulipas</destino>
+        </CentralField>
+        <CentralField>
+            <autobus>Hummer</autobus>
+            <destino>Colima, Colima</destino>
+        </CentralField>
+    </CentralAutobuses>
 </soap:Body>
 
 </soap:Envelope>
