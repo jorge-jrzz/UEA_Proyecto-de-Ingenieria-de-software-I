@@ -1,3 +1,37 @@
 <autobuses>
-    
-</autobuses> 
+    <autobus>
+        <placa>DOK540</placa>
+        <capacidad>40</capacidad>
+        <chofer>Hermilo Juarez</chofer>
+    </autobus>
+    <autobus>
+        <placa>ZKE784</placa>
+        <capacidad>42</capacidad>
+        <chofer>Andres Aguilar</chofer>
+    </autobus>
+    <autobus>
+        <placa>MKZ548</placa>
+        <capacidad>37</capacidad>
+        <chofer>Dario Erismendi</chofer>
+    </autobus>
+    <autobus>
+        <placa>DOK340</placa>
+        <capacidad>28</capacidad>
+        <chofer>Francisco Martinez</chofer>
+    </autobus>
+    <autobus>
+        <placa>HZT245</placa>
+        <capacidad>45</capacidad>
+        <chofer>Demetrio Islas</chofer>
+    </autobus>
+    <autobus>
+        <placa>ODZ120</placa>
+        <capacidad>50</capacidad>
+        <chofer>Humberto Elisalde</chofer>
+    </autobus>
+    <autobus>
+        <placa>STO320</placa>
+        <capacidad>30</capacidad>
+        <chofer>Gerardo Guerrero</chofer>
+    </autobus>
+</autobuses>
