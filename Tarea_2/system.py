@@ -18,20 +18,19 @@ with open(ruta_txt, 'r') as archivo:
     # Lee todas las líneas del archivo y las guarda en una lista
     lista_secciones = archivo.readlines()
 
-# Imprime la lista con el contenido del archivo
-print(lista_secciones)
-
-
 for autobus in root:
     placa = autobus.find('placa').text
     capacidad = autobus.find('capacidad').text
     chofer = autobus.find('chofer').text
     zona_str = autobus.find('zona').text
+    seccion_str = autobus.find('seccion').text
     zona = int(zona_str)
+    seccion = int(seccion_str)
     i=i+1
     print(f"{i}° Autobús:")
     print("  Placa:     ", placa)
     print("  Capacidad: ", capacidad)
     print("  Chofer:    ", chofer)
     print("  Zona:      ", zonas[zona])
+    print("  Seccion:   ", lista_secciones[seccion])
     print("----------------------------")
