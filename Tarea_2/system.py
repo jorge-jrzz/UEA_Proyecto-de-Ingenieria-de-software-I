@@ -19,17 +19,14 @@ for autobus in root:
     placa = autobus.find('placa').text
     capacidad = autobus.find('capacidad').text
     chofer = autobus.find('chofer').text
-    zona = autobus.find('zona').text
+    zona_str = autobus.find('zona').text
+    zona = int(zona_str)
     i=i+1
-    print("Autobus", i, ": ")
+    print(f"{i}° Autobús {i}:")
     print("  Placa:", placa)
     print("  Capacidad:", capacidad)
     print("  Chofer:", chofer)
-    
-    option = int(zona)
-    print(zona)
-    print(zonas[option])
-        
+    print("  Zona: ", zonas[zona])
     print("----------------------------")
 
 # '''
