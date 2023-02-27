@@ -1,10 +1,16 @@
 # Este código utiliza la librería xml.etree.ElementTree en Python para leer y manipular datos en un archivo xml.
 # Esta librería es parte de la biblioteca estándar de Python y proporciona una manera fácil y eficiente de trabajar con datos en formato xml. 
 # Con ElementTree, es posible acceder y modificar elementos y atributos dentro de un archivo xml de manera sencilla.
-
+import os
 import xml.etree.ElementTree as ET
 
-tree = ET.parse("/Users/jorge/Library/CloudStorage/OneDrive-Personal/VS_Code/Proyecto-de-Ingenieria-I/Tarea 1/autobuses.xml")
+# Ruta del directorio actual
+dir_actual = os.getcwd()
+
+# Ruta del archivo que se quiere abrir (relativa al directorio actual)
+ruta_xml = os.path.join(dir_actual, 'autobuses.xml')
+
+tree = ET.parse(ruta_xml)
 root = tree.getroot()
 
 i = 0

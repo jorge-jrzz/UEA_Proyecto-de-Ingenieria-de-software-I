@@ -1,7 +1,14 @@
+import os
 from xml.dom import minidom
 
+# Ruta del directorio actual
+dir_actual = os.getcwd()
+
+# Ruta del archivo que se quiere abrir (relativa al directorio actual)
+ruta_xml = os.path.join(dir_actual, 'central.xml')
+
 # Se utiliza la función parse() de minidom para cargar el archivo XML. Esto crea un objeto xml_file que representa el documento XML.
-document = minidom.parse("/Users/jorge/Library/CloudStorage/OneDrive-Personal/VS_Code/Proyecto-de-Ingenieria-I/Tarea 1/central.xml")
+document = minidom.parse(ruta_xml)
 
 # La función getElementsByTagName() se utiliza para obtener todos los elementos con el nombre "CentralField" del archivo XML.
 # El resultado se almacena en la variable central_fields.
