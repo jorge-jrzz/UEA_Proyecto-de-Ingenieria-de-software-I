@@ -10,19 +10,26 @@ root = tree.getroot()
 # Variables del Script para la imprecion en consola, y el cambio de valores del archivo .xml
 i = 0
 # Catalogo Zona
-one = "Sur"
-two = "Norte"
-three = "Este"
-four = "Oeste"
-five = "Centro"
+zonas = ["Sur", "Norte", "Este", "Oeste", "Centro"]
 
+print(zonas[0])
+
+# '''
 for autobus in root:
     placa = autobus.find('placa').text
     capacidad = autobus.find('capacidad').text
     chofer = autobus.find('chofer').text
+    zona = autobus.find('zona').text
     i=i+1
     print("Autobus", i, ": ")
     print("  Placa:", placa)
     print("  Capacidad:", capacidad)
     print("  Chofer:", chofer)
+    
+    option = int(zona)
+    print(zona)
+    print(zonas[option])
+        
     print("----------------------------")
+
+# '''

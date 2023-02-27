@@ -3,35 +3,51 @@
         <placa>DOK540</placa>
         <capacidad>40</capacidad>
         <chofer>Hermilo Juarez</chofer>
+<!-- En la etiqueta tipo catalogo, zona se puede poner por ejemplo "zona Sur o Norte" -->
+        <zona>0</zona>
+<!-- En la etiqueta tipo catalogo, seccion se puede poner por ejemplo colores  -->
+        <seccion>1</seccion>
     </autobus>
     <autobus>
         <placa>ZKE784</placa>
         <capacidad>42</capacidad>
         <chofer>Andres Aguilar</chofer>
+        <seccion>3</seccion>
+        <zona>4</zona>
     </autobus>
     <autobus>
         <placa>MKZ548</placa>
         <capacidad>37</capacidad>
         <chofer>Dario Erismendi</chofer>
+        <seccion>2</seccion>
+        <zona>3</zona>
     </autobus>
     <autobus>
         <placa>DOK340</placa>
         <capacidad>28</capacidad>
         <chofer>Francisco Martinez</chofer>
+        <seccion>3</seccion>
+        <zona>4</zona>
     </autobus>
     <autobus>
         <placa>HZT245</placa>
         <capacidad>45</capacidad>
         <chofer>Demetrio Islas</chofer>
+        <seccion>4</seccion>
+        <zona>1</zona>
     </autobus>
     <autobus>
         <placa>ODZ120</placa>
         <capacidad>50</capacidad>
         <chofer>Humberto Elisalde</chofer>
+        <seccion>2</seccion>
+        <zona>2</zona>
     </autobus>
     <autobus>
         <placa>STO320</placa>
         <capacidad>30</capacidad>
         <chofer>Gerardo Guerrero</chofer>
+        <seccion>0</seccion>
+        <zona>1</zona>
     </autobus>
 </autobuses>
