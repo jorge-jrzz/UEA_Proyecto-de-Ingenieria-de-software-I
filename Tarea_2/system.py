@@ -1,9 +1,12 @@
 import os
 import xml.etree.ElementTree as ET
 
-# Obtiene la ruta de de la carpeta con el archivo cascade.xml
-ruta_xml = os.path.join('Tarea_2', 'autobuses2.xml')
-ruta_txt = os.path.join('Tarea_2', 'secciones.txt')
+# Ruta del directorio actual
+dir_actual = os.getcwd()
+
+# Ruta del archivo que se quiere abrir (relativa al directorio actual)
+ruta_xml = os.path.join(dir_actual, 'autobuses2.xml')
+ruta_txt = os.path.join(dir_actual, 'secciones.txt')
 
 tree = ET.parse(ruta_xml)
 root = tree.getroot()
