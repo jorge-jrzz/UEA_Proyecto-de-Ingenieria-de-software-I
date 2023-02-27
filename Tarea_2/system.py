@@ -12,9 +12,6 @@ i = 0
 # Catalogo Zona
 zonas = ["Sur", "Norte", "Este", "Oeste", "Centro"]
 
-print(zonas[0])
-
-# '''
 for autobus in root:
     placa = autobus.find('placa').text
     capacidad = autobus.find('capacidad').text
@@ -22,11 +19,9 @@ for autobus in root:
     zona_str = autobus.find('zona').text
     zona = int(zona_str)
     i=i+1
-    print(f"{i}° Autobús {i}:")
-    print("  Placa:", placa)
-    print("  Capacidad:", capacidad)
-    print("  Chofer:", chofer)
-    print("  Zona: ", zonas[zona])
+    print(f"{i}° Autobús:")
+    print("  Placa:     ", placa)
+    print("  Capacidad: ", capacidad)
+    print("  Chofer:    ", chofer)
+    print("  Zona:      ", zonas[zona])
     print("----------------------------")
-
-# '''
