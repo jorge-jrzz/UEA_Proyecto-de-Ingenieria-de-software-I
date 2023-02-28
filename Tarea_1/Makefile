@@ -6,7 +6,7 @@ all: run
 
 # Prueba para ejecutar un archivo de python con un Makefile
 run:
-	python central.py
+	python3 central.py
 
 # Limpia los archivos generados durante la compilcion. 
 clean:
