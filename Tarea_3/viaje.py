@@ -7,15 +7,33 @@ class Viaje:
         self.__hora = hora
         self.__puerta = puerta
 
+    def __str__(self):
+        cadena = f"""
+Clave:  {self.__clave}
+Destino:  {self.__destino}
+Autobus:  {self.__autobus}
+Precio:  $ {self.__precio} MXN
+Hora de salida:  {self.__hora} hrs
+Puerta:  {self.__puerta}"""
+        return cadena
+
 
 def insertarViaje():
-    datos = {'clave': 'perro', 'destino': None, 'autobus': None,
+    datos = {'clave': None, 'destino': None, 'autobus': None,
              'precio': None, 'hora': None, 'puerta': None}
 
     print("Proporciona los siguinetes datos:")
     for item in datos:
-        print(item.upper())
-        valor = input(f"> ")
+        if item == 'hora':
+            print("\nHora de salida:")
+        else:
+            print(f"\n{item.capitalize()}: ")
+        valor = input("  > ")
+        datos[item] = valor
+
+    viaje = Viaje(**datos)
+    return viaje
 
 
-insertarViaje()
+viaje1 = insertarViaje()
+print(viaje1)
