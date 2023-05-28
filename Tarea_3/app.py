@@ -63,7 +63,7 @@ def again(what):
             print("** Ingresa una opcion valida **", end="\r")
             time.sleep(1)
             print(" " * 40)
-            agregar = input(" ¿Deseas {what} otro viaje? (S/N)  ")
+            agregar = input(f"\n ¿Deseas {what} otro viaje? (S/N)  ")
             agregar = agregar.lower()
             if agregar == 'n' or agregar == 's':
                 break
@@ -93,21 +93,64 @@ def opcion3():
     """Funcion para buscar un viaje por la clave del mismo"""
 
     while True:
+        is_there = False
         clear_screen()
         print("  ---- Buscar viajes ----\n")
         print("Proporciona la Clave del viaje: ")
         find = input("  > ")
-        is_there = False
         for trip in viajes:
             if trip.clave == find:
+                is_there = True
                 print("\n* ¡Viaje encontrado! *\n")
                 print(trip)
-                is_there = True
                 break
         if not is_there:
             print("\n ** El viaje con la clave ingresada no se encontro ** \n")
 
         if not again("buscar"):
+            break
+
+
+def opcion4():
+    """Funcion para eliminar un viaje por la clave del mismo"""
+
+    while True:
+        is_there = False
+        clear_screen()
+        print("  ---- Eliminar viajes ----\n")
+        print("Proporciona la Clave del viaje: ")
+        find = input("  > ")
+        for trip in viajes:
+            if trip.clave == find:
+                is_there = True
+                print("\n* ¡Viaje encontrado! *\n")
+                print(trip)
+                sure = input(
+                    "\n ¿Esta seguro de querer borrar este viaje? (S/N)  ")
+                sure = sure.lower()
+                if sure not in 'sn':
+                    while True:
+                        print("** Ingresa una opcion valida **", end="\r")
+                        time.sleep(1)
+                        print(" " * 40)
+                        sure = input(
+                            "\n ¿Esta seguro de querer borrar este viaje? (S/N)  ")
+                        sure = sure.lower()
+                        if sure == 'n' or sure == 's':
+                            break
+                if sure == 'n':
+                    break
+                elif sure == 's':
+                    viajes.remove(trip)
+                    print("\n* Se elimino el viaje con exito *\n")
+                    break
+
+                break
+
+        if not is_there:
+            print("\n ** El viaje con la clave ingresada no se encontro ** \n")
+
+        if not again("eliminar"):
             break
 
 
@@ -159,8 +202,10 @@ while True:
             time.sleep(1)
 
         elif opcion == 'd' or opcion == '4':
+            opcion4()
             clear_screen()
-            print("  ---- Eliminar viaje ----\n")
+            print("\n* Regresando al menu principal *")
+            time.sleep(1)
 
         elif opcion == 'e' or opcion == '5':
             clear_screen()

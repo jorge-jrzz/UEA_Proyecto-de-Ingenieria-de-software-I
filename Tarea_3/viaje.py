@@ -19,12 +19,48 @@ class Viaje:
         return self.__clave
 
     @clave.setter
-    def clave(self, valor):
-        self.__clave = valor
+    def clave(self, nueva_clave):
+        self.__clave = nueva_clave
 
-    @clave.deleter
-    def clave(self):
-        del self.__clave
+    @property
+    def destino(self):
+        return self.__destino
+
+    @destino.setter
+    def destino(self, nuevo_destino):
+        self.__destino = nuevo_destino
+
+    @property
+    def autobus(self):
+        return self.__autobus
+
+    @autobus.setter
+    def autobus(self, nuevo_autobus):
+        self.__autobus = nuevo_autobus
+
+    @property
+    def precio(self):
+        return self.__precio
+
+    @precio.setter
+    def precio(self, nuevo_precio):
+        self.__precio = nuevo_precio
+
+    @property
+    def hora(self):
+        return self.__hora
+
+    @hora.setter
+    def hora(self, nueva_hora):
+        self.__hora = nueva_hora
+
+    @property
+    def puerta(self):
+        return self.__puerta
+
+    @puerta.setter
+    def puerta(self, nueva_puerta):
+        self.__puerta = nueva_puerta
 
     def __str__(self):
         cadena = f"""
@@ -115,8 +151,17 @@ viajecito2 = Viaje("890uio", "durango", "hj-21-34", "549", "13", "4")
 viajes = [viajecito, viajecito1, viajecito2]
 
 find = "123qwe"
+
+
 for viaje in viajes:
-    if viaje.clave is find:
-        print("Valor encontado -> ", viaje.clave)
-    else:
-        print("El valor de la clave no se encontro :(")
+    print(viaje)
+
+
+for viaje in viajes:
+    if viaje.clave == find:
+        viajes.remove(viaje)
+
+
+print("------------------------")
+for viaje in viajes:
+    print(viaje)
