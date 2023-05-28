@@ -30,6 +30,28 @@ def verificar(option):
                 return True
 
 
+def press_any_key():
+    """Funcion para seguir con el programa cuando el usiario lo presione cualquier tecla"""
+
+    if os.name == "posix" or os.name == "mac":
+
+        import termios
+        import sys
+        import tty
+
+        fd = sys.stdin.fileno()
+
+        old_settings = termios.tcgetattr(fd)
+        try:
+            tty.setraw(sys.stdin.fileno())
+            sys.stdin.read(1)
+        finally:
+            termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+    elif os.name == "ce" or os.name == "nt" or os.name == "dos":
+        import msvcrt
+        msvcrt.getch()
+
+
 viajes = []
 
 
@@ -84,6 +106,26 @@ while True:
             clear_screen()
             print("\n* Regresando al menu principal *")
             time.sleep(1)
+
+        elif opcion == 'b' or opcion == '2':
+            clear_screen()
+            print("  ---- Mostrar viajes ----\n")
+            if len(viajes) > 0:
+                count = 0
+                for viaje in viajes:
+                    count += 1
+                    print(f"* REGISTRO {count} *")
+                    print(viaje)
+                print("--------------------")
+            else:
+                print("* No hay ningun viaje registrado *\n")
+
+            print("Presione cualquier tecla para continuar...")
+            press_any_key()
+            clear_screen()
+            print("\n* Regresando al menu principal *")
+            time.sleep(1.5)
+
         elif opcion == 'f' or opcion == '6':
             clear_screen()
             print("\n* VUELVA PRONTO *")
