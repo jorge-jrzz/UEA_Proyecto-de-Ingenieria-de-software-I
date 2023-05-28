@@ -1,3 +1,6 @@
+from num2words import num2words
+
+
 class Viaje:
     def __init__(self, clave, destino, autobus, precio, hora, puerta):
         self.__clave = clave
@@ -12,7 +15,7 @@ class Viaje:
 Clave:  {self.__clave}
 Destino:  {self.__destino}
 Autobus:  {self.__autobus}
-Precio:  $ {self.__precio} MXN
+Precio:  $ {self.__precio} MXN ({num2words(self.__precio, lang="es").upper()})
 Hora de salida:  {self.__hora} hrs
 Puerta:  {self.__puerta}"""
         return cadena
@@ -35,5 +38,5 @@ def insertarViaje():
     return viaje
 
 
-viaje1 = insertarViaje()
-print(viaje1)
+viaje = insertarViaje()
+print(viaje)
