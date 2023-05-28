@@ -63,14 +63,14 @@ def again(what):
             print("** Ingresa una opcion valida **", end="\r")
             time.sleep(1)
             print(" " * 40)
-            agregar = input(" ¿Deseas ingresar otro viaje? (S/N)  ")
+            agregar = input(" ¿Deseas {what} otro viaje? (S/N)  ")
             agregar = agregar.lower()
             if agregar == 'n' or agregar == 's':
                 break
-        if agregar == 'n':
-            return False
-        elif agregar == 's':
-            return True
+    if agregar == 'n':
+        return False
+    elif agregar == 's':
+        return True
 
 
 viajes = []
@@ -79,53 +79,36 @@ viajes = []
 def opcion1():
     """Funcion para realizar la opcion a del menu, insertar multiples viaje a una lista"""
 
-    if opcion == 'a' or opcion == '1':
-        while True:
-            clear_screen()
-            print("  ---- Insertar viaje ----\n")
-            viaje = insertar_viaje()
-            viajes.append(viaje)
+    while True:
+        clear_screen()
+        print("  ---- Insertar viaje ----\n")
+        viaje = insertar_viaje()
+        viajes.append(viaje)
 
-            if again("ingresar"):
-                pass
-            else:
-                break
-            # agregar = input("\n ¿Deseas ingresar otro viaje? (S/N)  ")
-            # agregar = agregar.lower()
-
-            # if agregar not in 'sn':
-            #     while True:
-            #         print("** Ingresa una opcion valida **", end="\r")
-            #         time.sleep(1)
-            #         print(" " * 40)
-            #         agregar = input(" ¿Deseas ingresar otro viaje? (S/N)  ")
-            #         agregar = agregar.lower()
-            #         if agregar == 'n' or agregar == 's':
-            #             break
-
-            # if agregar == 'n':
-            #     break
-            # elif agregar == 's':
-            #     pass
-    else:
-        print("Estas destro de la opcion a (insertar un viaje)")
+        if not again("ingresar"):
+            break
 
 
 def opcion3():
+    """Funcion para buscar un viaje por la clave del mismo"""
+
     while True:
         clear_screen()
         print("  ---- Buscar viajes ----\n")
         print("Proporciona la Clave del viaje: ")
         find = input("  > ")
-        isThere = False
-        for viaje in viajes:
-            if viaje.clave is find:
+        is_there = False
+        for trip in viajes:
+            if trip.clave == find:
                 print("\n* ¡Viaje encontrado! *\n")
-                print(viaje)
-                isThere = True
+                print(trip)
+                is_there = True
                 break
-        if not isThere:
+        if not is_there:
             print("\n ** El viaje con la clave ingresada no se encontro ** \n")
+
+        if not again("buscar"):
+            break
 
 
 while True:
@@ -157,9 +140,9 @@ while True:
                 count = 0
                 for viaje in viajes:
                     count += 1
-                    print(f"* REGISTRO {count} *")
+                    print(f"\n\n  * REGISTRO {count} *")
                     print(viaje)
-                print("--------------------")
+                print("\n--------------------")
             else:
                 print("* No hay ningun viaje registrado *\n")
 
@@ -167,10 +150,14 @@ while True:
             press_any_key()
             clear_screen()
             print("\n* Regresando al menu principal *")
-            time.sleep(1.5)
+            time.sleep(1)
 
         elif opcion == 'c' or opcion == '3':
-            print("  ---- Buscar viaje ----\n")
+            opcion3()
+            clear_screen()
+            print("\n* Regresando al menu principal *")
+            time.sleep(1)
+
         elif opcion == 'd' or opcion == '4':
             clear_screen()
             print("  ---- Eliminar viaje ----\n")

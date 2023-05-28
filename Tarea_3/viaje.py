@@ -14,6 +14,18 @@ class Viaje:
         self.__hora = hora
         self.__puerta = puerta
 
+    @property
+    def clave(self):
+        return self.__clave
+
+    @clave.setter
+    def clave(self, valor):
+        self.__clave = valor
+
+    @clave.deleter
+    def clave(self):
+        del self.__clave
+
     def __str__(self):
         cadena = f"""
 Clave:  {self.__clave.upper()}
@@ -94,3 +106,17 @@ def insertar_viaje():
     viaje = Viaje(**datos)
 
     return viaje
+
+
+viajecito = Viaje("312hjk", "durango", "hj-21-34", "549", "13", "4")
+viajecito1 = Viaje("123qwe", "durango", "hj-21-34", "549", "13", "4")
+viajecito2 = Viaje("890uio", "durango", "hj-21-34", "549", "13", "4")
+
+viajes = [viajecito, viajecito1, viajecito2]
+
+find = "123qwe"
+for viaje in viajes:
+    if viaje.clave is find:
+        print("Valor encontado -> ", viaje.clave)
+    else:
+        print("El valor de la clave no se encontro :(")
