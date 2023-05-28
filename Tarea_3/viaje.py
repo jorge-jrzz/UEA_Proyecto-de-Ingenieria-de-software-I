@@ -85,8 +85,6 @@ def insertar_viaje():
         # Aclaraciones al usuario sobre la informacion que se le pide
         if item == 'autobus':
             print("\nPlaca del autobus: ")
-        elif item == 'hora':
-            print("\nHora de salida (24 hrs):")
         else:
             print(f"\n{item.capitalize()}: ")
 
@@ -114,6 +112,7 @@ def insertar_viaje():
                     print(" " * 35, end="\r")
 
         elif item == 'hora':
+            print("\nHora de salida (24 hrs):")
             while True:
                 valor = input("  > ")
                 if valor.isdigit() and int(valor) in range(0, 24):
@@ -144,24 +143,64 @@ def insertar_viaje():
     return viaje
 
 
-viajecito = Viaje("312hjk", "durango", "hj-21-34", "549", "13", "4")
-viajecito1 = Viaje("123qwe", "durango", "hj-21-34", "549", "13", "4")
-viajecito2 = Viaje("890uio", "durango", "hj-21-34", "549", "13", "4")
+def update_viaje(trip):
+    """Funcion para actualizar los atributos de una instancia de un viaje"""
 
-viajes = [viajecito, viajecito1, viajecito2]
+    info = ['destino', 'autobus', 'precio', 'hora', 'puerta']
 
-find = "123qwe"
+    print("Proporciona los siguinetes datos:")
+    for stuff in info:
+        # Aclaraciones al usuario sobre la informacion que se le pide
+        if stuff == 'autobus':
+            print("\nPlaca del autobus: ")
+            new_valor = input("  > ")
+            trip.autobus = new_valor
+        elif stuff == 'hora':
+            print("\nHora de salida (24 hrs):")
+        else:
+            print(f"\n{stuff.capitalize()}: ")
 
+        # Verificaciones de la informacion ingresada por el usuario
+        if stuff == 'destino':
+            while True:
+                new_valor = input("  > ")
+                if new_valor.isalpha():
+                    trip.destino = new_valor
+                    break
+                else:
+                    print(" ** Ingresa un destino valido **", end="\r")
+                    time.sleep(1)
+                    print(" " * 35, end="\r")
 
-for viaje in viajes:
-    print(viaje)
+        elif stuff == 'precio':
+            while True:
+                new_valor = input("  > $ ")
+                if new_valor.isdigit():
+                    trip.precio = new_valor
+                    break
+                else:
+                    print(" ** Ingresa un precio valido **", end="\r")
+                    time.sleep(1)
+                    print(" " * 35, end="\r")
 
+        elif stuff == 'hora':
+            while True:
+                new_valor = input("  > ")
+                if new_valor.isdigit() and int(new_valor) in range(0, 24):
+                    trip.hora = new_valor
+                    break
+                else:
+                    print(" ** Ingresa una hora valida **", end="\r")
+                    time.sleep(1)
+                    print(" " * 35, end="\r")
 
-for viaje in viajes:
-    if viaje.clave == find:
-        viajes.remove(viaje)
-
-
-print("------------------------")
-for viaje in viajes:
-    print(viaje)
+        elif stuff == 'puerta':
+            while True:
+                new_valor = input("  > ")
+                if new_valor.isdigit():
+                    trip.puerta = new_valor
+                    break
+                else:
+                    print(" ** Ingresa un numero de puerta valido **", end="\r")
+                    time.sleep(1)
+                    print(" " * 42, end="\r")
