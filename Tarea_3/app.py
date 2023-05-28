@@ -1,7 +1,7 @@
 
 import os
 import time
-from viaje import insertar_viaje
+from viaje import insertar_viaje, update_viaje
 
 
 def clear_screen():
@@ -76,82 +76,123 @@ def again(what):
 viajes = []
 
 
-def opcion1():
+def insertar():
     """Funcion para realizar la opcion a del menu, insertar multiples viaje a una lista"""
 
     while True:
         clear_screen()
         print("  ---- Insertar viaje ----\n")
-        viaje = insertar_viaje()
+        viaje = insertar_viaje(viajes)
         viajes.append(viaje)
 
         if not again("ingresar"):
             break
 
 
-def opcion3():
+def search():
     """Funcion para buscar un viaje por la clave del mismo"""
 
-    while True:
-        is_there = False
-        clear_screen()
-        print("  ---- Buscar viajes ----\n")
-        print("Proporciona la Clave del viaje: ")
-        find = input("  > ")
-        for trip in viajes:
-            if trip.clave == find:
-                is_there = True
-                print("\n* ¡Viaje encontrado! *\n")
-                print(trip)
+    clear_screen()
+    if len(viajes) > 0:
+        while True:
+            is_there = False
+            clear_screen()
+            print("  ---- Buscar viajes ----\n")
+            print("Proporciona la Clave del viaje: ")
+            find = input("  > ")
+            for trip in viajes:
+                if trip.clave == find:
+                    is_there = True
+                    print("\n* ¡Viaje encontrado! *\n")
+                    print(trip)
+                    break
+            if not is_there:
+                print("\n ** El viaje con la clave ingresada no se encontro ** \n")
+
+            if not again("buscar"):
                 break
-        if not is_there:
-            print("\n ** El viaje con la clave ingresada no se encontro ** \n")
+    else:
+        print("* No hay ningun viaje registrado *\n")
+        print("Presione cualquier tecla para continuar...")
+        press_any_key()
 
-        if not again("buscar"):
-            break
 
-
-def opcion4():
+def delete():
     """Funcion para eliminar un viaje por la clave del mismo"""
 
-    while True:
-        is_there = False
-        clear_screen()
-        print("  ---- Eliminar viajes ----\n")
-        print("Proporciona la Clave del viaje: ")
-        find = input("  > ")
-        for trip in viajes:
-            if trip.clave == find:
-                is_there = True
-                print("\n* ¡Viaje encontrado! *\n")
-                print(trip)
-                sure = input(
-                    "\n ¿Esta seguro de querer borrar este viaje? (S/N)  ")
-                sure = sure.lower()
-                if sure not in 'sn':
-                    while True:
-                        print("** Ingresa una opcion valida **", end="\r")
-                        time.sleep(1)
-                        print(" " * 40)
-                        sure = input(
-                            "\n ¿Esta seguro de querer borrar este viaje? (S/N)  ")
-                        sure = sure.lower()
-                        if sure == 'n' or sure == 's':
-                            break
-                if sure == 'n':
-                    break
-                elif sure == 's':
-                    viajes.remove(trip)
-                    print("\n* Se elimino el viaje con exito *\n")
+    clear_screen()
+    if len(viajes) > 0:
+        while True:
+            is_there = False
+            clear_screen()
+            print("  ---- Eliminar viajes ----\n")
+            print("Proporciona la Clave del viaje: ")
+            find = input("  > ")
+            for trip in viajes:
+                if trip.clave == find:
+                    is_there = True
+                    print("\n* ¡Viaje encontrado! *\n")
+                    print(trip)
+                    sure = input(
+                        "\n ¿Esta seguro de querer borrar este viaje? (S/N)  ")
+                    sure = sure.lower()
+                    if sure not in 'sn':
+                        while True:
+                            print("** Ingresa una opcion valida **", end="\r")
+                            time.sleep(1)
+                            print(" " * 40)
+                            sure = input(
+                                "\n ¿Esta seguro de querer borrar este viaje? (S/N)  ")
+                            sure = sure.lower()
+                            if sure == 'n' or sure == 's':
+                                break
+                    if sure == 'n':
+                        break
+                    elif sure == 's':
+                        viajes.remove(trip)
+                        print("\n* Se elimino con exito el viaje *\n")
+                        break
+
                     break
 
+            if not is_there:
+                print("\n ** El viaje con la clave ingresada no se encontro ** \n")
+
+            if not again("eliminar"):
                 break
+    else:
+        print("* No hay ningun viaje registrado *\n")
+        print("Presione cualquier tecla para continuar...")
+        press_any_key()
 
-        if not is_there:
-            print("\n ** El viaje con la clave ingresada no se encontro ** \n")
 
-        if not again("eliminar"):
-            break
+def update():
+    """Funcion para actualizar los datos de un viaje en particular"""
+
+    clear_screen()
+    if len(viajes) > 0:
+        while True:
+            is_there = False
+            clear_screen()
+            print("  ---- Actualizar viaje ----\n")
+            print("Proporciona la Clave del viaje: ")
+            find = input("  > ")
+            for paseo in viajes:
+                if paseo.clave == find:
+                    is_there = True
+                    print("\n* ¡Viaje encontrado! *\n")
+                    update_viaje(paseo)
+                    print("\n* Se actualizo con exito el viaje *\n")
+                    break
+            if not is_there:
+                print("\n ** El viaje con la clave ingresada no se encontro ** \n")
+
+            if not again("actualizar"):
+                break
+    else:
+        print("* No hay ningun viaje registrado *\n")
+        print("Presione cualquier tecla para continuar...")
+        press_any_key()
 
 
 while True:
@@ -171,7 +212,7 @@ while True:
 
     if verificar(opcion):
         if opcion == 'a' or opcion == '1':
-            opcion1()
+            insertar()
             clear_screen()
             print("\n* Regresando al menu principal *")
             time.sleep(1)
@@ -196,24 +237,27 @@ while True:
             time.sleep(1)
 
         elif opcion == 'c' or opcion == '3':
-            opcion3()
+            search()
             clear_screen()
             print("\n* Regresando al menu principal *")
             time.sleep(1)
 
         elif opcion == 'd' or opcion == '4':
-            opcion4()
+            delete()
             clear_screen()
             print("\n* Regresando al menu principal *")
             time.sleep(1)
 
         elif opcion == 'e' or opcion == '5':
+            update()
             clear_screen()
-            print("  ---- Actualizar viaje ----\n")
+            print("\n* Regresando al menu principal *")
+            time.sleep(1)
 
         elif opcion == 'f' or opcion == '6':
             clear_screen()
             print("\n* VUELVA PRONTO *")
+            print("\n\n developed by Jorge Juarez\n\n")
             exit()
 
     else:

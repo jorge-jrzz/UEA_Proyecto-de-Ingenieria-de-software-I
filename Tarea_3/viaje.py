@@ -74,7 +74,23 @@ Puerta:  {self.__puerta}"""
         return cadena
 
 
-def insertar_viaje():
+def search(trips, key):
+    """Funcion para buscar un viaje por la clave del mismo"""
+
+    if len(trips) > 0:
+        while True:
+            is_there = False
+            for trip in trips:
+                if trip.clave == key:
+                    is_there = True
+                    return True
+            if not is_there:
+                return False
+    else:
+        return False
+
+
+def insertar_viaje(viajes):
     """Funcion para creau una instancia de la clase viaje"""
 
     datos = {'clave': None, 'destino': None, 'autobus': None,
@@ -83,8 +99,11 @@ def insertar_viaje():
     print("Proporciona los siguinetes datos:")
     for item in datos:
         # Aclaraciones al usuario sobre la informacion que se le pide
+
         if item == 'autobus':
             print("\nPlaca del autobus: ")
+        elif item == 'hora':
+            print("\nHora de salida (24 hrs):")
         else:
             print(f"\n{item.capitalize()}: ")
 
@@ -112,7 +131,6 @@ def insertar_viaje():
                     print(" " * 35, end="\r")
 
         elif item == 'hora':
-            print("\nHora de salida (24 hrs):")
             while True:
                 valor = input("  > ")
                 if valor.isdigit() and int(valor) in range(0, 24):
@@ -136,6 +154,12 @@ def insertar_viaje():
 
         else:
             valor = input("  > ")
+            if item == 'clave':
+                if search(viajes, valor):
+                    print(
+                        "\n** La clave ingresada ya ha sido registrada para otro viaje **\n")
+                    return
+
             datos[item] = valor
 
     viaje = Viaje(**datos)
