@@ -1,8 +1,11 @@
-from num2words import num2words
+
 import time
+from num2words import num2words
 
 
 class Viaje:
+    """Clase viaje, con metodos constructor y toString"""
+
     def __init__(self, clave, destino, autobus, precio, hora, puerta):
         self.__clave = clave
         self.__destino = destino
@@ -23,7 +26,9 @@ Puerta:  {self.__puerta}"""
         return cadena
 
 
-def insertarViaje():
+def insertar_viaje():
+    """Funcion para creau una instancia de la clase viaje"""
+
     datos = {'clave': None, 'destino': None, 'autobus': None,
              'precio': None, 'hora': None, 'puerta': None}
 
@@ -89,7 +94,3 @@ def insertarViaje():
     viaje = Viaje(**datos)
 
     return viaje
-
-
-viaje2 = insertarViaje()
-print(viaje2)
