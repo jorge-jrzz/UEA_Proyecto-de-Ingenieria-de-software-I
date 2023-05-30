@@ -195,71 +195,76 @@ def update():
         press_any_key()
 
 
-while True:
-    clear_screen()
-    print("**********************************")
-    print("****** Central de Autobuses ******")
-    print("**********************************\n")
-    print("a) Insertar viaje")
-    print("b) Mostrar viajes")
-    print("c) Buscar viajes")
-    print("d) Eliminar viaje")
-    print("e) Actualizar viaje")
-    print("f) Salir \n")
+def main() -> None:
+    while True:
+        clear_screen()
+        print("**********************************")
+        print("****** Central de Autobuses ******")
+        print("**********************************\n")
+        print("a) Insertar viaje")
+        print("b) Mostrar viajes")
+        print("c) Buscar viajes")
+        print("d) Eliminar viaje")
+        print("e) Actualizar viaje")
+        print("f) Salir \n")
 
-    opcion = input("Selecciona la opción (a-f) or (1-6):  ")
-    opcion = opcion.lower()
+        opcion = input("Selecciona la opción (a-f) or (1-6):  ")
+        opcion = opcion.lower()
 
-    if verificar(opcion):
-        if opcion == 'a' or opcion == '1':
-            insertar()
-            clear_screen()
-            print("\n* Regresando al menu principal *")
+        if verificar(opcion):
+            if opcion == 'a' or opcion == '1':
+                insertar()
+                clear_screen()
+                print("\n* Regresando al menu principal *")
+                time.sleep(1)
+
+            elif opcion == 'b' or opcion == '2':
+                clear_screen()
+                print("  ---- Mostrar viajes ----\n")
+                if len(viajes) > 0:
+                    count = 0
+                    for viaje in viajes:
+                        count += 1
+                        print(f"\n\n  * REGISTRO {count} *")
+                        print(viaje)
+                    print("\n--------------------")
+                else:
+                    print("* No hay ningun viaje registrado *\n")
+
+                print("Presione cualquier tecla para continuar...")
+                press_any_key()
+                clear_screen()
+                print("\n* Regresando al menu principal *")
+                time.sleep(1)
+
+            elif opcion == 'c' or opcion == '3':
+                search()
+                clear_screen()
+                print("\n* Regresando al menu principal *")
+                time.sleep(1)
+
+            elif opcion == 'd' or opcion == '4':
+                delete()
+                clear_screen()
+                print("\n* Regresando al menu principal *")
+                time.sleep(1)
+
+            elif opcion == 'e' or opcion == '5':
+                update()
+                clear_screen()
+                print("\n* Regresando al menu principal *")
+                time.sleep(1)
+
+            elif opcion == 'f' or opcion == '6':
+                clear_screen()
+                print("\n* VUELVA PRONTO *")
+                print("\n\n developed by Jorge Juarez\n\n")
+                exit()
+
+        else:
+            print("\n** Ingresa una opcion valida **")
             time.sleep(1)
 
-        elif opcion == 'b' or opcion == '2':
-            clear_screen()
-            print("  ---- Mostrar viajes ----\n")
-            if len(viajes) > 0:
-                count = 0
-                for viaje in viajes:
-                    count += 1
-                    print(f"\n\n  * REGISTRO {count} *")
-                    print(viaje)
-                print("\n--------------------")
-            else:
-                print("* No hay ningun viaje registrado *\n")
 
-            print("Presione cualquier tecla para continuar...")
-            press_any_key()
-            clear_screen()
-            print("\n* Regresando al menu principal *")
-            time.sleep(1)
-
-        elif opcion == 'c' or opcion == '3':
-            search()
-            clear_screen()
-            print("\n* Regresando al menu principal *")
-            time.sleep(1)
-
-        elif opcion == 'd' or opcion == '4':
-            delete()
-            clear_screen()
-            print("\n* Regresando al menu principal *")
-            time.sleep(1)
-
-        elif opcion == 'e' or opcion == '5':
-            update()
-            clear_screen()
-            print("\n* Regresando al menu principal *")
-            time.sleep(1)
-
-        elif opcion == 'f' or opcion == '6':
-            clear_screen()
-            print("\n* VUELVA PRONTO *")
-            print("\n\n developed by Jorge Juarez\n\n")
-            exit()
-
-    else:
-        print("\n** Ingresa una opcion valida **")
-        time.sleep(1)
+if __name__ == '__main__':
+    main()
