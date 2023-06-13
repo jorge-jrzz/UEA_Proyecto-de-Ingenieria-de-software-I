@@ -253,6 +253,14 @@ def update():
 def main() -> None:
     """Funcion principal, menu de opciones del programa"""
 
+    clear_screen()
+    if len(viajes) > 0:
+        print("\n* Cargando viajes a la lista del sistema *")
+    else:
+        print("\n* Sin viajes por cargar a la lista *")
+
+    time.sleep(1)
+
     while True:
         clear_screen()
         print("**********************************")
