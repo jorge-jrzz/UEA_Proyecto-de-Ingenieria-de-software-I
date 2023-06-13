@@ -2,6 +2,7 @@
 import os
 import time
 from viaje import insertar_viaje, update_viaje
+from cargaXML import cargar
 
 
 def clear_screen():
@@ -73,7 +74,7 @@ def again(what):
         return True
 
 
-viajes = []
+viajes = cargar()
 
 
 def insertar():
