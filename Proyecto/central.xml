@@ -1,0 +1,56 @@
+<central>
+    <viaje clave="837hfy">
+        <destino>Tijuana</destino>
+        <origen>Monterrey</origen>
+        <autobus>jk-21-ew</autobus>
+        <precio>800</precio>
+        <hora>09:30</hora>
+        <puerta>2</puerta>
+        <categoria>3</categoria>
+    </viaje>
+    <viaje clave="19ks28">
+        <destino>Guadalajara</destino>
+        <origen>Cuidad de México</origen>
+        <autobus>mn-54-ko</autobus>
+        <precio>600</precio>
+        <hora>12:15</hora>
+        <puerta>4</puerta>
+        <categoria>2</categoria>
+    </viaje>
+    <viaje clave="74ghd3">
+        <destino>Puebla</destino>
+        <origen>Veracruz</origen>
+        <autobus>as-89-fd</autobus>
+        <precio>350</precio>
+        <hora>14:45</hora>
+        <puerta>3</puerta>
+        <categoria>1</categoria>
+    </viaje>
+    <viaje clave="39jkw1">
+        <destino>Querétaro</destino>
+        <origen>San Luis Potosí</origen>
+        <autobus>qw-78-po</autobus>
+        <precio>400</precio>
+        <hora>17:30</hora>
+        <puerta>1</puerta>
+        <categoria>2</categoria>
+    </viaje>
+    <viaje clave="92hjkf">
+        <destino>Cancún</destino>
+        <origen>Mérida</origen>
+        <autobus>yu-32-ml</autobus>
+        <precio>900</precio>
+        <hora>19:15</hora>
+        <puerta>5</puerta>
+        <categoria>3</categoria>
+    </viaje>
+    <viaje clave="67dgjs">
+        <destino>Oaxaca</destino>
+        <origen>Huatulco</origen>
+        <autobus>op-76-nb</autobus>
+        <precio>250</precio>
+        <hora>21:00</hora>
+        <puerta>2</puerta>
+        <categoria>1</categoria>
+    </viaje>
+</central>
