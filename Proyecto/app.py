@@ -19,13 +19,13 @@ def verificar(option):
 
     if option.isalpha():
         for c in option:
-            if c not in 'abcdef':
+            if c not in 'abcdefg':
                 return False
             else:
                 return True
     else:
         for i in option:
-            if i not in '123456':
+            if i not in '1234567':
                 return False
             else:
                 return True
@@ -268,12 +268,13 @@ def main() -> None:
         print("**********************************\n")
         print("a) Insertar viaje")
         print("b) Mostrar viajes")
-        print("c) Buscar viajes")
-        print("d) Eliminar viaje")
-        print("e) Actualizar viaje")
-        print("f) Salir \n")
+        print("c) Mostrar viajes ordanados")
+        print("d) Buscar viajes")
+        print("e) Eliminar viaje")
+        print("f) Actualizar viaje")
+        print("g) Salir \n")
 
-        opcion = input("Selecciona la opción (a-f) or (1-6):  ")
+        opcion = input("Selecciona la opción (a-g) or (1-7):  ")
         opcion = opcion.lower()
 
         if verificar(opcion):
@@ -284,30 +285,49 @@ def main() -> None:
                 time.sleep(1)
 
             elif opcion == 'b' or opcion == '2':
-                mostrar()
+                clear_screen()
+                print("  ---- Mostrar viajes ----\n")
+                if len(viajes) > 0:
+                    count = 0
+                    for viaje in viajes:
+                        count += 1
+                        print(f"\n\n  * REGISTRO {count} *")
+                        print(viaje)
+                    print("\n--------------------")
+                else:
+                    print("* No hay ningun viaje registrado *\n")
+
+                print("Presione cualquier tecla para continuar...")
+                press_any_key()
                 clear_screen()
                 print("\n* Regresando al menu principal *")
                 time.sleep(1)
 
             elif opcion == 'c' or opcion == '3':
-                search()
+                mostrar()
                 clear_screen()
                 print("\n* Regresando al menu principal *")
                 time.sleep(1)
 
             elif opcion == 'd' or opcion == '4':
-                delete()
+                search()
                 clear_screen()
                 print("\n* Regresando al menu principal *")
                 time.sleep(1)
 
             elif opcion == 'e' or opcion == '5':
-                update()
+                delete()
                 clear_screen()
                 print("\n* Regresando al menu principal *")
                 time.sleep(1)
 
             elif opcion == 'f' or opcion == '6':
+                update()
+                clear_screen()
+                print("\n* Regresando al menu principal *")
+                time.sleep(1)
+
+            elif opcion == 'g' or opcion == '7':
                 clear_screen()
                 print("\n* VUELVA PRONTO *")
                 print("\n\n developed by Jorge Juarez\n\n")
